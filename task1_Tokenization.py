@@ -21,4 +21,9 @@ tokenizer=AutoTokenizer.from_pretrained("microsoft/Phi-3-mini-4k-instruct")
 corpus_tokens=tokenizer.encode(full_text,add_special_token=False)
 print("Total Tokens:",len(corpus_tokens))
 print("First 100 tokens:")
-print(corpus_tokens[:100])        
+print(corpus_tokens[:100]) 
+
+#step5:(save to pickle file)
+import pickle
+with open("full_text.pkl","wb") as f:
+    pickle.dump(full_text,f)       
