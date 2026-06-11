@@ -28,14 +28,11 @@ print(vocab)
 #convert X to numeric:    
 X_numeric = []
 for sample in X:
-    X_numeric.append(
-        [vocab[word] for word in sample])
+    X_numeric.append([vocab[word] for word in sample])
 print("Train:\n",X_numeric)
 
 #convert y to numeric:
-y_numeric = [
-    vocab[word]
-    for word in y]
+y_numeric = [vocab[word] for word in y]
 print("Test:\n",y_numeric)
 
 #save to pickle files:
