@@ -1,4 +1,2 @@
-﻿fastapi
-uvicorn
 PyPDF2
 transformers
