@@ -71,7 +71,7 @@ optimizer = optim.Adam(
     list(token_embedding.parameters()) +list(positional_embedding.parameters()) +list(hidden_layer.parameters()) +list(output_layer.parameters()),lr=0.001)
 
 #step7:loss and training loop:
-epochs=50
+epochs=150
 for epoch in range(epochs):
     optimizer.zero_grad()
     
