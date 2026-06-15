@@ -42,5 +42,5 @@ with open("y.pkl","wb") as f:
     pickle.dump(y_numeric,f)
 with open("vocab.pkl","wb") as f:
     pickle.dump(vocab,f)            
-print(len(X_numeric))
-print(len(y_numeric))    
+print("Length of X:",len(X_numeric))
+print("Length of y:",len(y_numeric))    

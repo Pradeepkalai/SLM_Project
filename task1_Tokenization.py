@@ -15,7 +15,7 @@ full_text=full_text.strip()
 
 #step3:(Load Tokenizer)
 from transformers import AutoTokenizer
-tokenizer=AutoTokenizer.from_pretrained("openai-community/gpt2")
+tokenizer=AutoTokenizer.from_pretrained("microsoft/Phi-3-mini-4k-instruct")
 
 #step4:(Tokenization)
 corpus_tokens=tokenizer.encode(full_text,add_special_tokens=False)
