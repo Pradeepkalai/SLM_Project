@@ -101,8 +101,6 @@ for step in range(2):
 #step7:(Get predicted word):
     predicted_word=reverse_vocab[predicted_id]
     words.append(predicted_word)
-    print(f"       -> Predicted token: '{predicted_word}'")
-    print(f"       -> Current sequence: {' '.join(words)}\n")
 print("Predicted Sequence:", " ".join(words))
 print("Predicted Id:",predicted_id)
 print("Predicted Word:",predicted_word)
