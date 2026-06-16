@@ -26,11 +26,13 @@ for window_size in [2,3,4]:
         X_numeric = []
         for sample in X:
            X_numeric.append([vocab[word] for word in sample])
+    print("="*40)       
     print("Train:\n",X_numeric[:15])
 
 #convert y to numeric:
     y_numeric = [vocab[word] for word in y]
     print("Test:\n",y_numeric[:15])
+    print("="*40)
     X_tensor=torch.tensor(X_numeric,dtype=torch.long)
     y_tensor=torch.tensor(y_numeric,dtype=torch.long)
 

@@ -1,6 +1,6 @@
 ﻿#step1:(Read Pdf)
 from PyPDF2 import PdfReader
-reader=PdfReader(r"C:\Users\prade\Downloads\Flex_EP_FY26Q4.pdf")
+reader=PdfReader(r"C:\Users\prade\Downloads\OpenWHO_A_Document-Level_Parallel_Corpus_for_Healt.pdf")
 full_text=" "
 for page in reader.pages:
     text=page.extract_text()
