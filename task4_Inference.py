@@ -12,7 +12,6 @@ reverse_vocab={idx:word for word,idx in vocab.items()}
 
 #step2:(Hyperparameters):
 vocab_size=len(vocab)
-window_size=2
 embedding_dim=64
 hidden_dim1=256
 hidden_dim2=128
@@ -25,18 +24,26 @@ if len(words)!=2:
     print(f"Please enter exactly 2 words.")
     exit()
 print(f"\nStarting Sequence:{' '.join(words)}")
-for step in range(2):
-    current_window_size=len(words)    
+for step in range(3):
+    current_window_size=len(words)
+    if current_window_size == 2:
+        window_size = 2
+        input_words = words
+    elif current_window_size == 3:
+        window_size = 3
+        input_words = words
+    else:
+        window_size = 4
+        input_words = words[-4:]    
     model_path = f"model_w{window_size}.pth"
     if not os.path.exists(model_path):
         print(f"Error: Missing trained weights file '{model_path}'. Run training first.")
         exit()
-    print(f"[Step {step+1}] Context Length: {current_window_size} | Loading: {model_path}")
-
+    
 #step3:(Create layers):
     token_embedding=nn.Embedding(vocab_size,embedding_dim)
-    positional_embedding=nn.Embedding(current_window_size,embedding_dim)
-    hidden_layer1=nn.Linear(current_window_size*embedding_dim,hidden_dim1)
+    positional_embedding=nn.Embedding(window_size,embedding_dim)
+    hidden_layer1=nn.Linear(window_size*embedding_dim,hidden_dim1)
     hidden_layer2=nn.Linear(hidden_dim1,hidden_dim2)
     hidden_layer3=nn.Linear(hidden_dim2,hidden_dim3)
     relu=nn.ReLU()
@@ -59,7 +66,7 @@ for step in range(2):
 
 #convert words to ids:
     input_ids=[]
-    for word in words:
+    for word in input_words:
        if word in vocab:
           input_ids.append(vocab[word])
        else:
@@ -73,7 +80,7 @@ for step in range(2):
 #step6:(Forward Pass):
     with torch.no_grad():
           token_embed=token_embedding(X)
-          positions=torch.arange(0,current_window_size).unsqueeze(0)
+          positions=torch.arange(0,window_size).unsqueeze(0)
           pos_embed=positional_embedding(positions)
           combined_embed=token_embed+pos_embed
           flattened=combined_embed.reshape(combined_embed.size(0), -1)
@@ -103,5 +110,3 @@ for step in range(2):
     words.append(predicted_word)
 print("Predicted Sequence:", " ".join(words))
 print("Predicted Id:",predicted_id)
-print("Predicted Word:",predicted_word)
-        
