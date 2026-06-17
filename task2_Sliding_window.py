@@ -13,26 +13,22 @@ with open("vocab.pkl","wb") as f:
     pickle.dump(vocab,f)
 
 for window_size in [2,3,4]:
-    X=[]
-    y=[]
+    X_numeric=[]
+    y_numeric=[]
 
 #step2:(create sliding windows)
     for i in range(len(corpus_tokens)-window_size):
-        X.append(corpus_tokens[i:i+window_size])
-        y.append(corpus_tokens[i+window_size])
-
-#step4:(convert to numeric)
-#convert X to numeric:    
-        X_numeric = []
-        for sample in X:
-           X_numeric.append([vocab[word] for word in sample])
-    print("="*40)       
-    print("Train:\n",X_numeric[:15])
-
-#convert y to numeric:
-    y_numeric = [vocab[word] for word in y]
+        X_numeric.append(
+        [vocab[word] for word in corpus_tokens[i:i+window_size]]
+    )   
+        y_numeric.append(
+         vocab[corpus_tokens[i+window_size]]
+    )
+    print("="*40)    
+    print("Train:\n",X_numeric[:15])    
     print("Test:\n",y_numeric[:15])
     print("="*40)
+
     X_tensor=torch.tensor(X_numeric,dtype=torch.long)
     y_tensor=torch.tensor(y_numeric,dtype=torch.long)
 
