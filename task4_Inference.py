@@ -119,4 +119,4 @@ if user_input:
         # Auto termination
         if word_count >= 4:
             st.warning("Terminated.")
-            st.stop()
+            st.stop()         

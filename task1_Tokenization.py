@@ -1,6 +1,6 @@
 ﻿#step1:(Read Pdf)
 from PyPDF2 import PdfReader
-reader=PdfReader(r"C:\Users\prade\Downloads\Principles-of-Data-Science-WEB Updated.pdf")
+reader=PdfReader(r"C:\Users\prade\Downloads\Days at the Morisaki Bookshop.pdf")
 full_text=" "
 for page in reader.pages:
     text=page.extract_text()

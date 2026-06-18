@@ -16,7 +16,7 @@ hidden_dim1=256
 hidden_dim2=128
 hidden_dim3=64
 batch_size=516
-epochs=100  
+epochs=300
 
 for window_size in [2,3,4]:
     with open(f"X_{window_size}.pkl","rb") as f:
