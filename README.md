@@ -47,20 +47,20 @@ SLM_Project/
 
 [ Raw PDF ] ➔ (1. Tokenize & Clean) ➔ (2. Sliding Window Matrix) ➔ (3. PyTorch Training) ➔ (4. Streamlit UI Client)
 
-#1. Full Corpus Tokenization (task1_Tokenization.py):
+1. Full Corpus Tokenization (task1_Tokenization.py):
 Extracts text strings from raw book PDFs using PyPDF2.Standardizes strings using Regular Expressions (re) to strip erratic whitespace.Converts words to unique structural tokens using the microsoft/Phi-3-mini-4k-instruct tokenizer.
 
-#2. Dataset Engineering (task2_Sliding_window.py):
+2. Dataset Engineering (task2_Sliding_window.py):
 Implements a custom sliding window configuration over the integer text token corpus.Dynamically chunks datasets into input groups ($X$) and target tokens ($y$) across three distinct window contexts ($W=2$, $W=3$, and $W=4$).
 
-#3. Deep Learning Network Architecture (task3_Train.py):
+3. Deep Learning Network Architecture (task3_Train.py):
 Constructs an architecture containing:nn.Embedding for vocabulary features.Positional Embedding layers to track word sequencing.3 Hidden Dense Layers combined with nn.ReLU activations.Optimizes cross-entropy loss over multiple epochs, checkpointing structural files neatly inside models/checkpoints/.
 
-#4. Live Text Generation Interface (task4_Inference.py):
+4. Live Text Generation Interface (task4_Inference.py):
 Serves a lightweight web interface via Streamlit.Reads the user's sentence, checks the token count, routes the input to the exact corresponding model size checkpoint, and samples predictions via Top-K multinomial probabilities.
 
-#💻 Quick Start & Execution
-#1. Installation
+💻 Quick Start & Execution
+1. Installation
 Clone the repository and install all environmental framework dependencies:
 
 Bash
