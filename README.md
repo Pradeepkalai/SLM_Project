@@ -1,6 +1,6 @@
 # SLM_Project
 
-# 🧠 Custom Small Language Model (SLM) from Scratch
+# 🧠 Custom Small Language Model (SLM)
 
 An end-to-end, custom-built Small Language Model (SLM) pipeline designed to process raw literature, handle dynamic contextual sequences, train deep learning architectures using PyTorch, and serve an interactive text-generation web interface via Streamlit.
 
@@ -63,10 +63,8 @@ Serves a lightweight web interface via Streamlit.Reads the user's sentence, chec
 1. Installation
 Clone the repository and install all environmental framework dependencies:
 
-Bash
 pip install -r requirements.txt
 #2. Run the Full Pipeline Sequentially
-Bash
 # Phase 1: Extract and clean raw data
 python src/task1_Tokenization.py
 
@@ -76,5 +74,5 @@ python src/task2_Sliding_window.py
 # Phase 3: Train your deep learning weights
 python src/task3_Train.py
 3. Launch the Interactive Web App
-Bash
+
 streamlit run src/task4_Inference.py
