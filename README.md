@@ -46,6 +46,14 @@ python src/task1_Tokenization.py
 # Phase 2: Build dataset feature matrices
 python src/task2_Sliding_window.py
 
+# Phase 3: Train your deep learning weights
+python src/task3_Train.py
+
+3. Launch the Interactive Web App
+
+streamlit run src/task4_Inference.py
+
+
 ## 📁 Repository Structure & Alignment
 
 The project follows a standard, industry-grade machine learning directory hierarchy:
@@ -72,10 +80,3 @@ SLM_Project/
 │
 ├── requirements.txt            # Third-party dependencies
 └── README.md                   # Technical documentation
-
-
-# Phase 3: Train your deep learning weights
-python src/task3_Train.py
-3. Launch the Interactive Web App
-
-streamlit run src/task4_Inference.py
